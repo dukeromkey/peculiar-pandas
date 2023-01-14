@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 
 function NFTDropPage() {
+
+  // Auth
+  const address = useAddress();
+  console.log('ADDRESS', address);
+
   return (
     <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
       {/*left*/}
@@ -22,7 +28,7 @@ function NFTDropPage() {
           <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
             The <span className="font-extrabold underline decoration-pink-600/50">Duke Romkey</span> NFT Market Place
           </h1>
-          <button className="rounded-full bg-rose-400 text-white px-4 py-2 text-xs font-bold lg:px-5 lg:py-3 lg:text-base">Sign In</button>
+          <ConnectWallet colorMode="light" accentColor='#DC2625' />
         </header>
 
         <hr className="my-2 border"/>

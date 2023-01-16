@@ -1,18 +1,39 @@
-import React from 'react';
-import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import React, { useEffect, useState } from 'react';
+import { ConnectWallet, useAddress, useContract } from "@thirdweb-dev/react";
 import { GetServerSideProps } from 'next';
 import { sanityClient, urlFor } from '../../sanity';
 import { Collection } from '../../typings';
 import Link from 'next/link';
+import { BigNumber } from 'ethers';
 
 interface Props {
   collection: Collection
 }
 
 function NFTDropPage({collection}: Props) {
+  const [claimedSupply, setClaimedSupply] = useState<number>(0);
+  const [totalSupply, setTotalSupply] = useState<BigNumber>();
+  const [loading, setLoading] = useState(true);
+  const nftDrop = useContract(collection.address, "nft-drop").contract;
 
   // Auth
   const address = useAddress();
+
+  useEffect(() => {
+    if (!nftDrop) return;
+    const fetchNFTDropData = async () => {
+      setLoading(true);
+
+      const claimed = await nftDrop.getAllClaimed();
+      const total = await nftDrop.totalSupply();
+
+      setClaimedSupply(claimed.length);
+      setTotalSupply(total);
+
+      setLoading(false);
+    };
+    fetchNFTDropData();
+  }, [nftDrop])
 
   return (
     <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
@@ -45,8 +66,19 @@ function NFTDropPage({collection}: Props) {
         {/* Content */}
         <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:space-y-0 lg:justify-center">
           <img className="w-80 object-cover pb-10" src={urlFor(collection.mainImage).url()} alt="" />
-          <h1 className="text-3xl font-bold lg:text-5xl lg:font-extrabold">The DUKE NFT CLUB</h1>
-          <p className="pt-2 text-xl text-green-500">13/21 NFT's claimed</p>
+          <h1 className="text-3xl font-bold lg:text-5xl lg:font-extrabold">{collection.title}</h1>
+
+          {loading ? (
+            <p className="pt-2 text-xl text-green-500 animate-pulse">
+              Loading Supply Count...
+            </p>
+          ): (
+            <p className="pt-2 text-xl text-green-500">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
+          )}
+
+          {loading && (
+            <img className="h-80 w-80" src="https://cdn.hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" />
+          )}
         </div>
         {/* Mint Button */}
         <button className="h-16 w-full bg-red-600 text-white rounded-full mt-10 font-bold">Mint NFT (0.01 ETH)</button>

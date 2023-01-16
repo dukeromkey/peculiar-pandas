@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import {} from '@next/font/google';
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',

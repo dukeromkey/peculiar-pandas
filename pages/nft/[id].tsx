@@ -88,8 +88,6 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     id: params?.id
   });
 
-  console.log('collection', collection);
-
   if (!collection) {
     return {
       notFound: true

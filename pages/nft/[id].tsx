@@ -21,14 +21,10 @@ function NFTDropPage({collection}: Props) {
   const address = useAddress();
 
   useEffect(() => {
-    console.log('ENTERED PRICE USE EFFECT');
-    console.log('NFT DROP', nftDrop);
     if (!nftDrop) return;
 
     const fetchPrice = async () => {
       const claimConditions = await nftDrop.claimConditions.getAll();
-      console.log('CLAIM CONDITIONS', claimConditions);
-      console.log('PRICE', claimConditions?.[0].currencyMetadata);
       setPriceInEth(claimConditions?.[0].currencyMetadata.displayValue);
     }
 
@@ -50,6 +46,30 @@ function NFTDropPage({collection}: Props) {
     };
     fetchNFTDropData();
   }, [nftDrop])
+
+  const mintNFT = () => {
+    if (!nftDrop || !address) return;
+
+    const quantity = 1;
+
+    setLoading(true);
+
+    nftDrop?.claimTo(address, quantity)
+      .then(async (tx) => {
+        const receipt = tx[0].receipt; // the transaction receipt
+        const claimedTokenId = tx[0].id; // the id of the NFT claimed
+        const claimedNFT = await tx[0].data(); // get the claimed NFT metadata
+        console.log(receipt);
+        console.log(claimedTokenId);
+        console.log(claimedNFT);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
@@ -97,7 +117,7 @@ function NFTDropPage({collection}: Props) {
           )}
         </div>
         {/* Mint Button */}
-        <button disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="h-16 w-full bg-red-600 text-white rounded-full mt-10 font-bold disabled:bg-gray-400">
+        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="h-16 w-full bg-red-600 text-white rounded-full mt-10 font-bold disabled:bg-gray-400">
           {loading ? (
             <>Loading</>
           ): claimedSupply === totalSupply?.toNumber() ? (

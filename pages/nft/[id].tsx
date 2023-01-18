@@ -62,7 +62,6 @@ function NFTDropPage({collection}: Props) {
 
   // Cycle through images
   useEffect(() => {
-    console.log('START INTERVAL');
     const intervalId = setInterval(() => {
       imageIndex++;
       if (imageIndex === imageArr.length) {
@@ -73,10 +72,10 @@ function NFTDropPage({collection}: Props) {
 
     return () => {
       clearInterval(intervalId);
-      console.log('CLEAR INTERVAL');
     }
   }, []);
 
+  // Main image files being cycled through
   const imageArr = [pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
   let imageIndex: number = 0;
 
@@ -163,7 +162,7 @@ function NFTDropPage({collection}: Props) {
         {/* Content */}
 
         <div className="flex flex-col space-y-6 text-center lg:space-y-0 lg:justify-center">
-          <h1 className="text-6xl mt-12 font-bold lg:text-5xl lg:font-extrabold">{collection.title}</h1>
+          <h1 className="text-6xl font-ranchers text-gray-800 mt-12 font-extrabold lg:text-5xl lg:font-extrabold">{collection.title.toUpperCase()}</h1>
           <Image src={mainImage} alt="" />
           {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
@@ -180,7 +179,7 @@ function NFTDropPage({collection}: Props) {
           )}
         </div>
         {/* Mint Button */}
-        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mx-auto h-12 w-5/6 bg-panda-yellow text-black rounded font-bold disabled:bg-gray-400">
+        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
           {loading ? (
             <>Loading</>
           ): claimedSupply === totalSupply?.toNumber() ? (

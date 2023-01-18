@@ -9,10 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // 'panda-yellow': '#F7B538',
         'panda-blue': '#8DC8EA',
         'panda-yellow': '#F9C80E',
         'panda-pink': '#FDB1B6',
+      },
+      fontFamily: {
+        'ranchers': ['Roboto Flex', 'sans-serif']
       }
     },
   },

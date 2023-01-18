@@ -1,0 +1,7 @@
+.header button {
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  /* color: green !important; */
+  font-size: 10px !important;
+}

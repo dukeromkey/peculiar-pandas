@@ -1,3 +1,4 @@
+import styles from './peculiarPenguin.module.css';
 import React, { useEffect, useState } from 'react';
 import { ConnectWallet, useAddress, useContract } from "@thirdweb-dev/react";
 import { GetServerSideProps } from 'next';
@@ -16,6 +17,7 @@ function NFTDropPage({collection}: Props) {
   const [totalSupply, setTotalSupply] = useState<BigNumber>();
   const [loading, setLoading] = useState(true);
   const [priceInEth, setPriceInEth] = useState<string>();
+  // Get NFT smart contract information
   const nftDrop = useContract(collection.address, "nft-drop").contract;
 
   // Auth
@@ -80,10 +82,6 @@ function NFTDropPage({collection}: Props) {
             padding: '20px',
           },
         });
-
-        console.log(receipt);
-        console.log(claimedTokenId);
-        console.log(claimedNFT);
       })
       .catch((err) => {
         console.log(err);
@@ -104,10 +102,10 @@ function NFTDropPage({collection}: Props) {
   };
 
   return (
-    <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
+    <div className="flex min-h-screen w-screen flex-col">
       <Toaster position='bottom-left' />
       {/*left*/}
-      <div className="lg:col-span-4 bg-gradient-to-br from-cyan-800 to-rose-500">
+      {/* <div className="lg:col-span-4 bg-gradient-to-br from-cyan-800 to-rose-500">
         <div className="flex flex-col items-center justify-center py-2 lg:min-h-screen">
           <div className="bg-gradient-to-br from-yellow-400 to-purple-600 p-2 rounded-xl">
             <img className="w-44 rounded-xl object-cover lg:h-96 lg:w-72" src={urlFor(collection.previewImage).url()} alt="" />
@@ -117,20 +115,20 @@ function NFTDropPage({collection}: Props) {
             <h2 className="text-xl text-gray-300">{collection.description}</h2>
           </div>
         </div>
-      </div>
-      {/* right  */}
-      <div className=" flex flex-1 flex-col p-12 lg:col-span-6">
+      </div> */}
+      <div className="flex flex-1 flex-col">
         {/* Header */}
-        <header className="flex items-center justify-between">
+        <header className="flex items-center justify-around py-2">
           <Link href='/'>
-            <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
-              The <span className="font-extrabold underline decoration-pink-600/50">Duke Romkey</span> NFT Market Place
+            <h1 className="cursor-pointer font-extralight sm:w-80">
+            Duke NFT Home
             </h1>
           </Link>
-          <ConnectWallet colorMode="light" accentColor='#DC2625' />
+          <div className={styles.header}>
+            <ConnectWallet colorMode="light" accentColor='#DC2625' />
+          </div>
         </header>
 
-        <hr className="my-2 border"/>
         {address && <p className="text-center text-sm text-rose-400">You're logged in with the wallet {address.substring(0,5)}...{address.substring(address.length - 5)}</p>}
         {/* Content */}
         <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:space-y-0 lg:justify-center">

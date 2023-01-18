@@ -7,6 +7,15 @@ import { Collection } from '../../typings';
 import Link from 'next/link';
 import { BigNumber } from 'ethers';
 import toast, { Toaster } from 'react-hot-toast';
+import Image from 'next/image';
+import pp1 from '../../images/pp1.png';
+import pp2 from '../../images/pp2.png';
+import pp3 from '../../images/pp3.png';
+import pp4 from '../../images/pp4.png';
+import pp5 from '../../images/pp5.png';
+import pp6 from '../../images/pp6.png';
+import pp7 from '../../images/pp7.png';
+import pp8 from '../../images/pp8.png';
 
 interface Props {
   collection: Collection
@@ -19,6 +28,7 @@ function NFTDropPage({collection}: Props) {
   const [priceInEth, setPriceInEth] = useState<string>();
   // Get NFT smart contract information
   const nftDrop = useContract(collection.address, "nft-drop").contract;
+  const [mainImage, setMainImage] = useState(pp1);
 
   // Auth
   const address = useAddress();
@@ -49,6 +59,26 @@ function NFTDropPage({collection}: Props) {
     };
     fetchNFTDropData();
   }, [nftDrop])
+
+  // Cycle through images
+  useEffect(() => {
+    console.log('START INTERVAL');
+    const intervalId = setInterval(() => {
+      imageIndex++;
+      if (imageIndex === imageArr.length) {
+        imageIndex = 0;
+      }
+      setMainImage(imageArr[imageIndex]);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+      console.log('CLEAR INTERVAL');
+    }
+  }, []);
+
+  const imageArr = [pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
+  let imageIndex: number = 0;
 
   const mintNFT = () => {
     if (!nftDrop || !address) return;
@@ -102,7 +132,7 @@ function NFTDropPage({collection}: Props) {
   };
 
   return (
-    <div className="flex min-h-screen w-screen flex-col">
+    <div className="flex min-h-screen w-screen flex-col bg-panda-blue">
       <Toaster position='bottom-left' />
       {/*left*/}
       {/* <div className="lg:col-span-4 bg-gradient-to-br from-cyan-800 to-rose-500">
@@ -125,15 +155,17 @@ function NFTDropPage({collection}: Props) {
             </h1>
           </Link>
           <div className={styles.header}>
-            <ConnectWallet colorMode="light" accentColor='#DC2625' />
+            <ConnectWallet colorMode="light" accentColor='#F9C80E' />
           </div>
         </header>
 
-        {address && <p className="text-center text-sm text-rose-400">You're logged in with the wallet {address.substring(0,5)}...{address.substring(address.length - 5)}</p>}
+        {/* {address && <p className="text-center text-sm text-rose-400">Logged in with wallet {address.substring(0,5)}...{address.substring(address.length - 5)}</p>} */}
         {/* Content */}
-        <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:space-y-0 lg:justify-center">
-          <img className="w-80 object-cover pb-10" src={urlFor(collection.mainImage).url()} alt="" />
-          <h1 className="text-3xl font-bold lg:text-5xl lg:font-extrabold">{collection.title}</h1>
+
+        <div className="flex flex-col space-y-6 text-center lg:space-y-0 lg:justify-center">
+          <h1 className="text-6xl mt-12 font-bold lg:text-5xl lg:font-extrabold">{collection.title}</h1>
+          <Image src={mainImage} alt="" />
+          {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
           {loading ? (
             <p className="pt-2 text-xl text-green-500 animate-pulse">
@@ -148,7 +180,7 @@ function NFTDropPage({collection}: Props) {
           )}
         </div>
         {/* Mint Button */}
-        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="h-16 w-full bg-red-600 text-white rounded-full mt-10 font-bold disabled:bg-gray-400">
+        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mx-auto h-12 w-5/6 bg-panda-yellow text-black rounded font-bold disabled:bg-gray-400">
           {loading ? (
             <>Loading</>
           ): claimedSupply === totalSupply?.toNumber() ? (

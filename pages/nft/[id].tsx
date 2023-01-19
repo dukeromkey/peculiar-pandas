@@ -16,6 +16,7 @@ import pp5 from '../../images/pp5.png';
 import pp6 from '../../images/pp6.png';
 import pp7 from '../../images/pp7.png';
 import pp8 from '../../images/pp8.png';
+import bamboo from '../../images/bamboo_bg.png';
 
 interface Props {
   collection: Collection
@@ -133,19 +134,8 @@ function NFTDropPage({collection}: Props) {
   return (
     <div className="flex min-h-screen w-screen flex-col bg-panda-blue">
       <Toaster position='bottom-left' />
-      {/*left*/}
-      {/* <div className="lg:col-span-4 bg-gradient-to-br from-cyan-800 to-rose-500">
-        <div className="flex flex-col items-center justify-center py-2 lg:min-h-screen">
-          <div className="bg-gradient-to-br from-yellow-400 to-purple-600 p-2 rounded-xl">
-            <img className="w-44 rounded-xl object-cover lg:h-96 lg:w-72" src={urlFor(collection.previewImage).url()} alt="" />
-          </div>
-          <div className="p-5 text-center space-y-2">
-            <h1 className="text-4xl font-bold text-white">{collection.title}</h1>
-            <h2 className="text-xl text-gray-300">{collection.description}</h2>
-          </div>
-        </div>
-      </div> */}
       <div className="flex flex-1 flex-col">
+
         {/* Header */}
         <header className="flex items-center justify-around py-2">
           <Link href='/'>
@@ -158,38 +148,38 @@ function NFTDropPage({collection}: Props) {
           </div>
         </header>
 
-        {/* {address && <p className="text-center text-sm text-rose-400">Logged in with wallet {address.substring(0,5)}...{address.substring(address.length - 5)}</p>} */}
-        {/* Content */}
-
-        <div className="flex flex-col space-y-6 text-center lg:space-y-0 lg:justify-center">
-          <h1 className="text-6xl font-ranchers text-gray-800 mt-12 font-extrabold lg:text-5xl lg:font-extrabold">{collection.title.toUpperCase()}</h1>
-          <Image src={mainImage} alt="" />
+        {/* Body */}
+        <div className="flex mt-8 bg-bamboo flex-col text-center lg:space-y-0 lg:justify-center">
+          <h1 className="text-7xl drop-shadow-md font-ranchers text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold">PEC<span className="text-gray-100">U</span>L<span className="text-gray-100">IA</span>R P<span className="text-gray-100">A</span>ND<span className="text-gray-100">A</span>S</h1>
+          <Image className="mx-auto -mt-10" src={mainImage} alt="" />
           {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
           {loading ? (
-            <p className="pt-2 text-xl text-green-500 animate-pulse">
+            <p className="pt-2 text-xl text-gray-200 animate-pulse">
               Loading Supply Count...
             </p>
           ): (
-            <p className="pt-2 text-xl text-green-500">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
-          )}
-
-          {loading && (
-            <img className="h-80 w-80" src="https://cdn.hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" />
+            <p className="pt-2 text-xl text-gray-200">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
           )}
         </div>
+
         {/* Mint Button */}
-        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
+        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
           {loading ? (
             <>Loading</>
           ): claimedSupply === totalSupply?.toNumber() ? (
             <>SOLD OUT</>
           ): !address ? (
-            <>Sign in to Mint</>
+            <>Connect Wallet To Mint</>
           ): (
             <span className="font-bold">Mint NFT ({priceInEth} ETH)</span>
           )}
           </button>
+      </div>
+
+      {/* About */}
+      <div>
+
       </div>
 
     </div>

@@ -14,7 +14,10 @@ module.exports = {
         'panda-pink': '#FDB1B6',
       },
       fontFamily: {
-        'ranchers': ['Roboto Flex', 'sans-serif']
+        'ranchers': ['Grandstander', 'cursive']
+      },
+      backgroundImage: {
+        'bamboo': "url('/images/bamboo_bg.png')"
       }
     },
   },

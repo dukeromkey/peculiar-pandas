@@ -16,7 +16,8 @@ import pp5 from '../../images/pp5.png';
 import pp6 from '../../images/pp6.png';
 import pp7 from '../../images/pp7.png';
 import pp8 from '../../images/pp8.png';
-import bamboo from '../../images/bamboo_bg.png';
+import aboutPanda from '../../images/32.png';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 interface Props {
   collection: Collection
@@ -132,14 +133,14 @@ function NFTDropPage({collection}: Props) {
   };
 
   return (
-    <div className="flex min-h-screen w-screen flex-col bg-panda-blue">
+    <div className="flex min-h-screen w-screen font-rubik text-gray-700 flex-col bg-panda-blue">
       <Toaster position='bottom-left' />
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-col pb-20 relative">
 
         {/* Header */}
         <header className="flex items-center justify-around py-2">
           <Link href='/'>
-            <h1 className="cursor-pointer font-extralight sm:w-80">
+            <h1 className="cursor-pointer sm:w-80">
             Duke NFT Home
             </h1>
           </Link>
@@ -150,20 +151,20 @@ function NFTDropPage({collection}: Props) {
 
         {/* Body */}
         <div className="flex mt-8 bg-bamboo flex-col text-center lg:space-y-0 lg:justify-center">
-          <h1 className="text-7xl drop-shadow-md font-ranchers text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold">PEC<span className="text-gray-100">U</span>L<span className="text-gray-100">IA</span>R P<span className="text-gray-100">A</span>ND<span className="text-gray-100">A</span>S</h1>
+          <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold">PEC<span className="text-gray-100">U</span>L<span className="text-gray-100">IA</span>R P<span className="text-gray-100">A</span>ND<span className="text-gray-100">A</span>S</h1>
           <Image className="z-10 mx-auto -mt-10" src={mainImage} alt="" />
           {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
           {/* Mint Button */}
-          <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
+          <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400">
             {loading ? (
-              <>Loading</>
+              <span className="animate-pulse">Loading...</span>
             ): claimedSupply === totalSupply?.toNumber() ? (
               <>SOLD OUT</>
             ): !address ? (
               <>Connect Wallet To Mint</>
             ): (
-              <span className="font-bold">Mint NFT ({priceInEth} ETH)</span>
+              <span className="font-medium">Mint NFT ({priceInEth} ETH)</span>
             )}
             </button>
 
@@ -175,11 +176,21 @@ function NFTDropPage({collection}: Props) {
               <p className="pt-2 text-md text-gray-800">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
             )}
         </div>
+        {/* TRIANGLE ICON ATTEMPT FROM MATERIAL UI */}
+        {/* <ArrowDropDownIcon size="large" /> */}
       </div>
 
-      {/* About */}
-      <div>
 
+      <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-4 border-panda-electric-dark">
+
+        {/* About */}
+        <div className="flex flex-col items-center mt-32 bg-gray-100 rounded w-5/6 p-6">
+          <Image className="w-40 -mt-24 rounded-full border-4 border-panda-electric-dark" src={aboutPanda} alt="" />
+          <h1 className="text-5xl mt-6 font-ranchers drop-shadow-md text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold"><span className="text-panda-blue">A</span>B<span className="text-panda-blue">OU</span>T</h1>
+          <p className="mt-2 text-center">
+          A fun collection of digital panda characters that make perfect profile pictures. With a mix of cute and peculiar designs, this collection offers a wide range of options for you to express your individuality.
+          </p>
+        </div>
       </div>
 
     </div>

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.11.0",
     "@next/font": "^13.1.2",
     "@sanity/image-url": "^1.0.1",
     "@thirdweb-dev/react": "^3.6.9",

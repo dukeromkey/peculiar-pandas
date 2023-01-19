@@ -140,8 +140,8 @@ function NFTDropPage({collection}: Props) {
         {/* Header */}
         <header className="flex items-center justify-around py-2">
           <Link href='/'>
-            <h1 className="cursor-pointer sm:w-80">
-            Duke NFT Home
+            <h1 className="border-2 border-panda-blue-dark cursor-pointer text-panda-blue-dark px-2 py-1 rounded">
+            NFT Portfolio
             </h1>
           </Link>
           <div className={styles.header}>
@@ -156,7 +156,7 @@ function NFTDropPage({collection}: Props) {
           {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
           {/* Mint Button */}
-          <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400">
+          <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400 hover:bg-button-border drop-shadow-lg">
             {loading ? (
               <span className="animate-pulse">Loading...</span>
             ): claimedSupply === totalSupply?.toNumber() ? (
@@ -184,7 +184,7 @@ function NFTDropPage({collection}: Props) {
       <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-4 border-panda-electric-dark">
 
         {/* About */}
-        <div className="flex flex-col items-center mt-32 bg-gray-100 rounded w-5/6 p-6">
+        <div className="flex flex-col items-center mt-32 bg-gray-100 rounded w-5/6 p-6 border-4 border-panda-electric-dark">
           <Image className="w-40 -mt-24 rounded-full border-4 border-panda-electric-dark" src={aboutPanda} alt="" />
           <h1 className="text-5xl mt-6 font-ranchers drop-shadow-md text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold"><span className="text-panda-blue">A</span>B<span className="text-panda-blue">OU</span>T</h1>
           <p className="mt-2 text-center">

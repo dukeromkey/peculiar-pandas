@@ -13,7 +13,9 @@ module.exports = {
         'panda-yellow': '#F9C80E',
         'panda-pink': '#FDB1B6',
         'panda-electric-blue': '#496A81',
-        'panda-electric-dark': '#426076'
+        'panda-electric-dark': '#426076',
+        'panda-blue-dark': '#2079AC',
+        'button-border': '#E7B805'
       },
       fontFamily: {
         'ranchers': ['Grandstander', 'cursive'],

@@ -151,30 +151,30 @@ function NFTDropPage({collection}: Props) {
         {/* Body */}
         <div className="flex mt-8 bg-bamboo flex-col text-center lg:space-y-0 lg:justify-center">
           <h1 className="text-7xl drop-shadow-md font-ranchers text-gray-900 t-12 font-extrabold lg:text-5xl lg:font-extrabold">PEC<span className="text-gray-100">U</span>L<span className="text-gray-100">IA</span>R P<span className="text-gray-100">A</span>ND<span className="text-gray-100">A</span>S</h1>
-          <Image className="mx-auto -mt-10" src={mainImage} alt="" />
+          <Image className="z-10 mx-auto -mt-10" src={mainImage} alt="" />
           {/* <img className="w-80 object-cover" src={urlFor(collection.mainImage).url()} alt="" /> */}
 
-          {loading ? (
-            <p className="pt-2 text-xl text-gray-200 animate-pulse">
-              Loading Supply Count...
-            </p>
-          ): (
-            <p className="pt-2 text-xl text-gray-200">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
-          )}
-        </div>
+          {/* Mint Button */}
+          <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
+            {loading ? (
+              <>Loading</>
+            ): claimedSupply === totalSupply?.toNumber() ? (
+              <>SOLD OUT</>
+            ): !address ? (
+              <>Connect Wallet To Mint</>
+            ): (
+              <span className="font-bold">Mint NFT ({priceInEth} ETH)</span>
+            )}
+            </button>
 
-        {/* Mint Button */}
-        <button onClick={mintNFT} disabled={loading || claimedSupply === totalSupply?.toNumber() || !address} className="mt-6 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-bold disabled:bg-gray-400">
-          {loading ? (
-            <>Loading</>
-          ): claimedSupply === totalSupply?.toNumber() ? (
-            <>SOLD OUT</>
-          ): !address ? (
-            <>Connect Wallet To Mint</>
-          ): (
-            <span className="font-bold">Mint NFT ({priceInEth} ETH)</span>
-          )}
-          </button>
+            {loading ? (
+              <p className="pt-2 text-md text-gray-700 animate-pulse">
+                Loading Supply Count...
+              </p>
+            ): (
+              <p className="pt-2 text-md text-gray-800">{claimedSupply} / {totalSupply?.toString()} NFT's claimed</p>
+            )}
+        </div>
       </div>
 
       {/* About */}

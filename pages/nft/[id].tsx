@@ -22,6 +22,7 @@ import smallPandaRow1 from '../../images/pandas_4v1.png';
 import smallPandaRow2 from '../../images/pandas_4v2.png';
 import smallPandaRow3 from '../../images/pandas_4v3.png';
 import smallPandaRow4 from '../../images/pandas_4v4.png';
+import { motion } from 'framer-motion';
 
 interface Props { collection: Collection };
 
@@ -195,7 +196,7 @@ function NFTDropPage({ collection }: Props) {
         </div>
       </div>
 
-      <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-2 border-panda-electric-dark pb-20 px-4">
+      <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-2 border-panda-electric-dark pb-6 px-4">
         {/* About */}
         <div className="flex flex-col items-center mt-40 bg-gray-100 rounded w-5/6 p-6 border-4 border-panda-electric-dark">
           <Image
@@ -233,10 +234,19 @@ function NFTDropPage({ collection }: Props) {
         </div>
         {/* Panda Image Rows */}
         <div className="flex flex-col space-y-4 mt-12">
-          <Image src={smallPandaRow1} alt="" />
-          <Image src={smallPandaRow2} alt="" />
-          <Image src={smallPandaRow3} alt="" />
-          <Image src={smallPandaRow4} alt="" />
+          <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+            <Image src={smallPandaRow1} alt="" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+            <Image src={smallPandaRow2} alt="" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+            <Image src={smallPandaRow3} alt="" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+            <Image src={smallPandaRow4} alt="" />
+          </motion.div>
+
         </div>
 
         {/* Credits */}

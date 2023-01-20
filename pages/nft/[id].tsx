@@ -233,7 +233,7 @@ function NFTDropPage({ collection }: Props) {
           </button>
         </div>
         {/* Panda Image Rows */}
-        <div className="flex flex-col space-y-4 mt-12">
+        <div className="flex flex-col space-y-4 mt-12 overflow-hidden">
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
             <Image src={smallPandaRow1} alt="" />
           </motion.div>

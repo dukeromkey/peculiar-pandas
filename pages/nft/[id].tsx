@@ -174,7 +174,7 @@ function NFTDropPage({ collection }: Props) {
             ) : !address ? (
               <>Connect Wallet To Mint</>
             ) : (
-              <span className="font-medium">Mint NFT ({priceInEth} ETH)</span>
+              <span className="font-medium">Mint Panda ({priceInEth} ETH)</span>
             )}
           </button>
 
@@ -210,6 +210,23 @@ function NFTDropPage({ collection }: Props) {
             collection offers a wide range of options for you to express your
             individuality.
           </p>
+          <button
+            onClick={mintNFT}
+            disabled={
+              loading || claimedSupply === totalSupply?.toNumber() || !address
+            }
+            className="mt-10 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400 hover:bg-button-border drop-shadow-lg"
+          >
+            {loading ? (
+              <span className="animate-pulse">Loading...</span>
+            ) : claimedSupply === totalSupply?.toNumber() ? (
+              <>SOLD OUT</>
+            ) : !address ? (
+              <>Connect Wallet To Mint</>
+            ) : (
+              <span className="font-medium">Mint Panda</span>
+            )}
+          </button>
         </div>
       </div>
     </div>

@@ -18,7 +18,10 @@ import pp7 from "../../images/pp7.png";
 import pp8 from "../../images/pp8.png";
 import aboutPanda from "../../images/32.png";
 import blueTriangle from "../../images/blue_wide_triangle.png";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import smallPandaRow1 from '../../images/pandas_4v1.png';
+import smallPandaRow2 from '../../images/pandas_4v2.png';
+import smallPandaRow3 from '../../images/pandas_4v3.png';
+import smallPandaRow4 from '../../images/pandas_4v4.png';
 
 interface Props { collection: Collection };
 
@@ -192,7 +195,7 @@ function NFTDropPage({ collection }: Props) {
         </div>
       </div>
 
-      <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-2 border-panda-electric-dark pb-20">
+      <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-2 border-panda-electric-dark pb-20 px-4">
         {/* About */}
         <div className="flex flex-col items-center mt-40 bg-gray-100 rounded w-5/6 p-6 border-4 border-panda-electric-dark">
           <Image
@@ -228,7 +231,20 @@ function NFTDropPage({ collection }: Props) {
             )}
           </button>
         </div>
+        {/* Panda Image Rows */}
+        <div className="flex flex-col space-y-4 mt-12">
+          <Image src={smallPandaRow1} alt="" />
+          <Image src={smallPandaRow2} alt="" />
+          <Image src={smallPandaRow3} alt="" />
+          <Image src={smallPandaRow4} alt="" />
+        </div>
+
+        {/* Credits */}
+        <footer className="mt-16">
+          <h5 className="text-gray-400 text-xs">Designed & Built by Duke Romkey</h5>
+        </footer>
       </div>
+
     </div>
   );
 }

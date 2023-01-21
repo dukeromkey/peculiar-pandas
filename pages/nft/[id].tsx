@@ -22,6 +22,10 @@ import smallPandaRow1 from '../../images/pandas_4v1.png';
 import smallPandaRow2 from '../../images/pandas_4v2.png';
 import smallPandaRow3 from '../../images/pandas_4v3.png';
 import smallPandaRow4 from '../../images/pandas_4v4.png';
+import largePandaRow1 from '../../images/pandas_5v1.png';
+import largePandaRow2 from '../../images/pandas_5v2.png';
+import largePandaRow3 from '../../images/pandas_5v3.png';
+import largePandaRow4 from '../../images/pandas_5v4.png';
 import { motion } from 'framer-motion';
 
 interface Props { collection: Collection };
@@ -234,16 +238,20 @@ function NFTDropPage({ collection }: Props) {
         {/* Panda Image Rows */}
         <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-16 md:space-y-8 max-w-screen-2xl w-5/6">
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
-            <Image src={smallPandaRow1} className="object-contain" alt="" />
+            <Image src={smallPandaRow1} className="lg:hidden" alt="" />
+            <Image src={largePandaRow1} className="hidden lg:flex" alt="" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
-            <Image src={smallPandaRow2} alt="" />
+            <Image src={smallPandaRow2} className="lg:hidden" alt="" />
+            <Image src={largePandaRow2} className="hidden lg:flex" alt="" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
-            <Image src={smallPandaRow3} alt="" />
+            <Image src={smallPandaRow3} className="lg:hidden" alt="" />
+            <Image src={largePandaRow3} className="hidden lg:flex" alt="" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
-            <Image src={smallPandaRow4} alt="" />
+            <Image src={smallPandaRow4} className="lg:hidden" alt="" />
+            <Image src={largePandaRow4} className="hidden lg:flex" alt="" />
           </motion.div>
 
         </div>

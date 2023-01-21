@@ -143,7 +143,7 @@ function NFTDropPage({ collection }: Props) {
   return (
     <div className="flex min-h-screen flex-1 font-rubik text-gray-700 flex-col bg-panda-blue">
       <Toaster position="bottom-left" />
-      <div className="flex flex-col relative pb-12 lg:w-5/6 mx-auto max-w-screen-xl">
+      <div className="flex flex-col relative pb-12 md:pb-20 lg:w-5/6 mx-auto max-w-screen-xl">
         {/* Header */}
         <header className="flex items-center justify-between py-4 px-8 md:py-6">
           <Link href="/">
@@ -158,7 +158,7 @@ function NFTDropPage({ collection }: Props) {
 
         {/* Body */}
         <div className="flex mt-6 bg-bamboo flex-col text-center md:mt-4">
-          <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
+          <h1 className="relative text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
             PEC<span className="text-gray-100">U</span>L
             <span className="text-gray-100">IA</span>R P
             <span className="text-gray-100">A</span>ND
@@ -236,7 +236,7 @@ function NFTDropPage({ collection }: Props) {
           </button>
         </div>
         {/* Panda Image Rows */}
-        <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-16 md:space-y-8 max-w-screen-2xl w-5/6">
+        <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-24 md:space-y-10 max-w-screen-2xl w-5/6">
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
             <Image src={smallPandaRow1} className="lg:hidden" alt="" />
             <Image src={largePandaRow1} className="hidden lg:flex" alt="" />

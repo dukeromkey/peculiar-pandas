@@ -158,13 +158,24 @@ function NFTDropPage({ collection }: Props) {
 
         {/* Body */}
         <div className="flex mt-6 bg-bamboo flex-col text-center md:mt-4">
-          <h1 className="relative text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
+          <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
             PEC<span className="text-gray-100">U</span>L
             <span className="text-gray-100">IA</span>R P
             <span className="text-gray-100">A</span>ND
             <span className="text-gray-100">A</span>S
           </h1>
-          <Image className="z-10 mx-auto -mt-10 md:-mt-16" src={mainImage} alt="" />
+          <div className="relative max-w-xl mx-auto">
+            <Image className="w-28 absolute bottom-0 left-10 z-10" src={pp1} alt="" />
+            <Image className="w-28 absolute bottom-0 -left-14 z-10" src={pp2} alt="" />
+            <Image className="w-28 absolute bottom-0 -left-36 z-10" src={pp3} alt="" />
+            <Image className="w-28 absolute bottom-0 -left-56 z-10" src={pp4} alt="" />
+            <Image className="z-10 mx-auto -mt-10 md:-mt-16" src={mainImage} alt="" />
+            <Image className="w-28 absolute bottom-0 right-6 z-10" src={pp5} alt="" />
+            <Image className="w-28 absolute bottom-0 -right-14 z-10" src={pp6} alt="" />
+            <Image className="w-28 absolute bottom-0 -right-36 z-10" src={pp7} alt="" />
+            <Image className="w-28 absolute bottom-0 -right-60 z-10" src={pp8} alt="" />
+          </div>
+
 
           {/* Mint Button */}
           <button

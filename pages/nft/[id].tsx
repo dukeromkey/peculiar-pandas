@@ -165,15 +165,31 @@ function NFTDropPage({ collection }: Props) {
             <span className="text-gray-100">A</span>S
           </h1>
           <div className="relative max-w-xl mx-auto">
-            <Image className="w-28 absolute bottom-0 left-10 z-10" src={pp1} alt="" />
-            <Image className="w-28 absolute bottom-0 -left-14 z-10" src={pp2} alt="" />
-            <Image className="w-28 absolute bottom-0 -left-36 z-10" src={pp3} alt="" />
-            <Image className="w-28 absolute bottom-0 -left-56 z-10" src={pp4} alt="" />
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 left-10 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp1} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-14 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp2} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-36 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp3} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-56 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp4} alt="" />
+            </motion.div>
             <Image className="z-10 mx-auto -mt-10 md:-mt-16" src={mainImage} alt="" />
-            <Image className="w-28 absolute bottom-0 right-6 z-10" src={pp5} alt="" />
-            <Image className="w-28 absolute bottom-0 -right-14 z-10" src={pp6} alt="" />
-            <Image className="w-28 absolute bottom-0 -right-36 z-10" src={pp7} alt="" />
-            <Image className="w-28 absolute bottom-0 -right-60 z-10" src={pp8} alt="" />
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 right-6 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp5} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-14 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp6} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-36 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp7} alt="" />
+            </motion.div>
+            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-60 z-10" initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+              <Image src={pp8} alt="" />
+            </motion.div>
           </div>
 
 

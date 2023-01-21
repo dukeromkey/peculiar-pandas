@@ -137,9 +137,9 @@ function NFTDropPage({ collection }: Props) {
   };
 
   return (
-    <div className="flex min-h-screen w-screen font-rubik text-gray-700 flex-col bg-panda-blue">
+    <div className="flex min-h-screen flex-1 font-rubik text-gray-700 flex-col bg-panda-blue">
       <Toaster position="bottom-left" />
-      <div className="flex flex-col relative pb-12">
+      <div className="flex flex-col relative pb-12 lg:w-5/6 mx-auto max-w-screen-xl">
         {/* Header */}
         <header className="flex items-center justify-between py-4 px-8 md:py-6">
           <Link href="/">
@@ -153,8 +153,8 @@ function NFTDropPage({ collection }: Props) {
         </header>
 
         {/* Body */}
-        <div className="flex mt-6 bg-bamboo flex-col text-center lg:space-y-0 lg:justify-center md:mt-4">
-          <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-9xl md:px-3">
+        <div className="flex mt-6 bg-bamboo flex-col text-center md:mt-4">
+          <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
             PEC<span className="text-gray-100">U</span>L
             <span className="text-gray-100">IA</span>R P
             <span className="text-gray-100">A</span>ND
@@ -197,7 +197,7 @@ function NFTDropPage({ collection }: Props) {
 
       <div className="bg-panda-electric-blue flex flex-1 flex-col items-center border-t-2 border-panda-electric-dark pb-6 px-4">
         {/* About */}
-        <div className="flex flex-col items-center mt-40 bg-gray-100 rounded w-5/6 p-6 pb-10 border-4 border-panda-electric-dark md:mt-52">
+        <div className="flex flex-col items-center mt-40 bg-gray-100 rounded w-5/6 p-6 pb-10 border-4 border-panda-electric-dark md:mt-52 max-w-5xl">
           <Image
             className="w-40 -mt-24 rounded-full border-4 border-panda-electric-dark md:w-52 md:-mt-32"
             src={aboutPanda}
@@ -207,7 +207,7 @@ function NFTDropPage({ collection }: Props) {
             <span className="text-panda-blue">A</span>B
             <span className="text-panda-blue">OU</span>T
           </h1>
-          <p className="mt-2 text-center md:text-xl md:mt-4">
+          <p className="mt-2 text-center md:text-xl md:mt-4 lg:text-3xl lg:px-8">
             A fun collection of digital panda characters that make perfect
             profile pictures. With a mix of cute and peculiar designs, this
             collection offers a wide range of options for you to express your
@@ -218,7 +218,7 @@ function NFTDropPage({ collection }: Props) {
             disabled={
               loading || claimedSupply === totalSupply?.toNumber() || !address
             }
-            className="mt-10 mx-auto h-12 w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400 hover:bg-button-border drop-shadow-lg"
+            className="mt-10 lg:mt-16 mx-auto p-2 md:text-2xl w-5/6 bg-panda-yellow text-gray-700 rounded font-medium disabled:bg-gray-400 hover:bg-button-border drop-shadow-lg max-w-lg"
           >
             {loading ? (
               <span className="animate-pulse">Loading...</span>
@@ -232,9 +232,9 @@ function NFTDropPage({ collection }: Props) {
           </button>
         </div>
         {/* Panda Image Rows */}
-        <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-16 md:space-y-8">
+        <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-16 md:space-y-8 max-w-screen-2xl w-5/6">
           <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
-            <Image src={smallPandaRow1} alt="" />
+            <Image src={smallPandaRow1} className="object-contain" alt="" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
             <Image src={smallPandaRow2} alt="" />

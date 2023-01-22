@@ -8,24 +8,24 @@ import Link from "next/link";
 import { BigNumber } from "ethers";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
-import pp1 from "../../images/pp1.png";
-import pp2 from "../../images/pp2.png";
-import pp3 from "../../images/pp3.png";
-import pp4 from "../../images/pp4.png";
-import pp5 from "../../images/pp5.png";
-import pp6 from "../../images/pp6.png";
-import pp7 from "../../images/pp7.png";
-import pp8 from "../../images/pp8.png";
-import aboutPanda from "../../images/32.png";
-import blueTriangle from "../../images/blue_wide_triangle.png";
-import smallPandaRow1 from '../../images/pandas_4v1.png';
-import smallPandaRow2 from '../../images/pandas_4v2.png';
-import smallPandaRow3 from '../../images/pandas_4v3.png';
-import smallPandaRow4 from '../../images/pandas_4v4.png';
-import largePandaRow1 from '../../images/pandas_5v1.png';
-import largePandaRow2 from '../../images/pandas_5v2.png';
-import largePandaRow3 from '../../images/pandas_5v3.png';
-import largePandaRow4 from '../../images/pandas_5v4.png';
+import pp1 from "../../public/images/pp1.png";
+import pp2 from "../../public/images/pp2.png";
+import pp3 from "../../public/images/pp3.png";
+import pp4 from "../../public/images/pp4.png";
+import pp5 from "../../public/images/pp5.png";
+import pp6 from "../../public/images/pp6.png";
+import pp7 from "../../public/images/pp7.png";
+import pp8 from "../../public/images/pp8.png";
+import aboutPanda from "../../public/images/32.png";
+import blueTriangle from "../../public/images/blue_wide_triangle.png";
+import smallPandaRow1 from '../../public/images/pandas_4v1.png';
+import smallPandaRow2 from '../../public/images/pandas_4v2.png';
+import smallPandaRow3 from '../../public/images/pandas_4v3.png';
+import smallPandaRow4 from '../../public/images/pandas_4v4.png';
+import largePandaRow1 from '../../public/images/pandas_5v1.png';
+import largePandaRow2 from '../../public/images/pandas_5v2.png';
+import largePandaRow3 from '../../public/images/pandas_5v3.png';
+import largePandaRow4 from '../../public/images/pandas_5v4.png';
 import { motion } from 'framer-motion';
 
 interface Props { collection: Collection };
@@ -157,7 +157,7 @@ function NFTDropPage({ collection }: Props) {
         </header>
 
         {/* Body */}
-        <div className="flex mt-6 bg-bamboo flex-col text-center md:mt-4">
+        <div className="flex mt-6 flex-col text-center md:mt-4">
           <h1 className="text-7xl font-ranchers drop-shadow-md text-gray-900 font-extrabold md:text-8xl px-3">
             PEC<span className="text-gray-100">U</span>L
             <span className="text-gray-100">IA</span>R P

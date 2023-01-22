@@ -1,0 +1,15 @@
+.header button {
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: .75rem !important;
+}
+
+@media screen and (min-width: 768px) {
+  .header button {
+    min-width: auto !important;
+    width: auto !important;
+    height: auto !important;
+    font-size: 1rem !important;
+  }
+}

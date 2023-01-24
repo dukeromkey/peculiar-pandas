@@ -8,14 +8,14 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto flex flex-col m-h-screen py-20 px-10 2xl:px-0">
       <Head>
-        <title>Duke NFT Drop</title>
+        <title>Duke's NFT Apps</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap" rel="stylesheet" />
       </Head>
       <h1 className="mb-10 text-4xl font-extralight">
-        <span className="font-extrabold">Duke's</span> NFT Projects
+        <span className="font-extrabold">Duke's</span> NFT Apps
       </h1>
 
       <main className='bg-slate-100 p-10 shadow-xl shadow-rose-400/20'>

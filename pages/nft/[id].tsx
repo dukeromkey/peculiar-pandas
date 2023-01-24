@@ -1,9 +1,6 @@
 import styles from "./peculiarPenguin.module.css";
 import React, { useEffect, useState } from "react";
 import { ConnectWallet, useAddress, useContract } from "@thirdweb-dev/react";
-import { GetServerSideProps } from "next";
-import { sanityClient, urlFor } from "../../sanity";
-import { Collection } from "../../typings";
 import Link from "next/link";
 import { BigNumber } from "ethers";
 import toast, { Toaster } from "react-hot-toast";
@@ -28,15 +25,14 @@ import largePandaRow3 from '../../public/images/pandas_5v3.png';
 import largePandaRow4 from '../../public/images/pandas_5v4.png';
 import { motion } from 'framer-motion';
 
-interface Props { collection: Collection };
 
-function NFTDropPage({ collection }: Props) {
+function NFTDropPage() {
   const [claimedSupply, setClaimedSupply] = useState<number>(0);
   const [totalSupply, setTotalSupply] = useState<BigNumber>();
   const [loading, setLoading] = useState(true);
   const [priceInEth, setPriceInEth] = useState<string>();
   // Get NFT smart contract information
-  const nftDrop = useContract(collection.address, "nft-drop").contract;
+  const nftDrop = useContract('0x57a77D51ff1CA0c6Ae526EB9D001665849D5C277', "nft-drop").contract;
   const [mainImage, setMainImage] = useState(pp1);
 
   // Auth
@@ -294,46 +290,3 @@ function NFTDropPage({ collection }: Props) {
 }
 
 export default NFTDropPage;
-
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const query = `*[_type == 'collection' && slug.current == $id][0] {
-    _id,
-    title,
-    address,
-    description,
-    nftCollectionName,
-    mainImage {
-      asset
-    },
-    previewImage {
-      asset
-    },
-    slug {
-      current
-    },
-    creator-> {
-      _id,
-      name,
-      address,
-      slug {
-        current
-      },
-    }
-  }`;
-
-  const collection = await sanityClient.fetch(query, {
-    id: params?.id,
-  });
-
-  if (!collection) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      collection,
-    },
-  };
-};

@@ -1,4 +1,4 @@
-import styles from "./peculiarPenguin.module.css";
+import styles from "./peculiarPandas.module.css";
 import React, { useEffect, useState } from "react";
 import { ConnectWallet, useAddress, useContract } from "@thirdweb-dev/react";
 import Link from "next/link";

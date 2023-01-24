@@ -18,7 +18,7 @@ const Home = () => {
         <span className="font-extrabold">Duke's</span> NFT Apps
       </h1>
 
-      <main className='bg-slate-100 p-10 shadow-xl shadow-rose-400/20'>
+      <main className='bg-slate-100 p-10 shadow-xl shadow-blue-300/20'>
         <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
           <Link href={`/mint/`}>
             <div className='flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-105'>

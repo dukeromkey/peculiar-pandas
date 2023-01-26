@@ -15,16 +15,15 @@ import pp7 from "../../public/images/pp7.png";
 import pp8 from "../../public/images/pp8.png";
 import aboutPanda from "../../public/images/32.png";
 import blueTriangle from "../../public/images/blue_wide_triangle.png";
-import smallPandaRow1 from '../../public/images/pandas_4v1.png';
-import smallPandaRow2 from '../../public/images/pandas_4v2.png';
-import smallPandaRow3 from '../../public/images/pandas_4v3.png';
-import smallPandaRow4 from '../../public/images/pandas_4v4.png';
-import largePandaRow1 from '../../public/images/pandas_5v1.png';
-import largePandaRow2 from '../../public/images/pandas_5v2.png';
-import largePandaRow3 from '../../public/images/pandas_5v3.png';
-import largePandaRow4 from '../../public/images/pandas_5v4.png';
-import { motion } from 'framer-motion';
-
+import smallPandaRow1 from "../../public/images/pandas_4v1.png";
+import smallPandaRow2 from "../../public/images/pandas_4v2.png";
+import smallPandaRow3 from "../../public/images/pandas_4v3.png";
+import smallPandaRow4 from "../../public/images/pandas_4v4.png";
+import largePandaRow1 from "../../public/images/pandas_5v1.png";
+import largePandaRow2 from "../../public/images/pandas_5v2.png";
+import largePandaRow3 from "../../public/images/pandas_5v3.png";
+import largePandaRow4 from "../../public/images/pandas_5v4.png";
+import { motion } from "framer-motion";
 
 function NFTDropPage() {
   const [claimedSupply, setClaimedSupply] = useState<number>(0);
@@ -32,7 +31,10 @@ function NFTDropPage() {
   const [loading, setLoading] = useState(true);
   const [priceInEth, setPriceInEth] = useState<string>();
   // Get NFT smart contract information
-  const nftDrop = useContract('0x57a77D51ff1CA0c6Ae526EB9D001665849D5C277', "nft-drop").contract;
+  const nftDrop = useContract(
+    "0x57a77D51ff1CA0c6Ae526EB9D001665849D5C277",
+    "nft-drop"
+  ).contract;
   const [mainImage, setMainImage] = useState(pp1);
 
   // Auth
@@ -161,33 +163,76 @@ function NFTDropPage() {
             <span className="text-gray-100">A</span>S
           </h1>
           <div className="relative max-w-xl mx-auto">
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 left-10 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 left-10 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+            >
               <Image src={pp1} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-14 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -left-14 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 1.5 }}
+            >
               <Image src={pp2} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-36 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -left-36 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 1.5 }}
+            >
               <Image src={pp3} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -left-56 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -left-56 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 1.5 }}
+            >
               <Image src={pp4} alt="" />
             </motion.div>
-            <Image className="z-10 mx-auto -mt-10 md:-mt-16" src={mainImage} alt="" />
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 right-6 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.5 }}>
+            <Image
+              className="z-10 mx-auto -mt-10 md:-mt-16"
+              src={mainImage}
+              alt=""
+            />
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 right-6 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+            >
               <Image src={pp5} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-14 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -right-14 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 1.5 }}
+            >
               <Image src={pp6} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-36 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -right-36 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 1.5 }}
+            >
               <Image src={pp7} alt="" />
             </motion.div>
-            <motion.div className="hidden lg:flex w-28 absolute bottom-0 -right-60 z-10" initial={{ opacity: 0, y: -500 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 1.5 }}>
+            <motion.div
+              className="hidden lg:flex w-28 absolute bottom-0 -right-60 z-10"
+              initial={{ opacity: 0, y: -500 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 1.5 }}
+            >
               <Image src={pp8} alt="" />
             </motion.div>
           </div>
-
 
           {/* Mint Button */}
           <button
@@ -218,7 +263,11 @@ function NFTDropPage() {
             </p>
           )}
           {/* Triangle */}
-          <Image className="absolute left-0 right-0 mx-auto -bottom-9 w-20 rotate-45" src={blueTriangle} alt="" />
+          <Image
+            className="absolute left-0 right-0 mx-auto -bottom-9 w-20 rotate-45"
+            src={blueTriangle}
+            alt=""
+          />
         </div>
       </div>
 
@@ -260,31 +309,47 @@ function NFTDropPage() {
         </div>
         {/* Panda Image Rows */}
         <div className="flex flex-col space-y-4 mt-12 overflow-hidden md:mt-24 md:space-y-10 max-w-screen-2xl w-5/6">
-          <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5 }}
+          >
             <Image src={smallPandaRow1} className="lg:hidden" alt="" />
             <Image src={largePandaRow1} className="hidden lg:flex" alt="" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5 }}
+          >
             <Image src={smallPandaRow2} className="lg:hidden" alt="" />
             <Image src={largePandaRow2} className="hidden lg:flex" alt="" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: -200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5 }}
+          >
             <Image src={smallPandaRow3} className="lg:hidden" alt="" />
             <Image src={largePandaRow3} className="hidden lg:flex" alt="" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 200 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}>
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5 }}
+          >
             <Image src={smallPandaRow4} className="lg:hidden" alt="" />
             <Image src={largePandaRow4} className="hidden lg:flex" alt="" />
           </motion.div>
-
         </div>
 
         {/* Credits */}
         <footer className="mt-16">
-          <h5 className="text-gray-400 text-xs">Designed & Built by Duke Romkey</h5>
+          <h5 className="text-gray-400 text-xs">
+            Designed & Built by Duke Romkey
+          </h5>
         </footer>
       </div>
-
     </div>
   );
 }

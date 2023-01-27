@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="PeculiarPandasSmall.gif" width="500" /></br>
-  (See live site: <a href="http://peculiar-pandas.dukeromkey.com" target="blank">http://peculiar-pandas.dukeromkey.com</a>)
+  (See live site: <a href="http://peculiar-pandas.dukeromkey.com">http://peculiar-pandas.dukeromkey.com</a>)
 </div>
 
 ## Technologies

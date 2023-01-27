@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="PeculiarPandasSmall.gif" width="500" /></br>
-  <h5>See large version: https://app.screencast.com/YFPJirvO7seR5</h5>
+  (See live site: <a href="http://peculiar-pandas.dukeromkey.com" target="blank">http://peculiar-pandas.dukeromkey.com</a>)
 </div>
 
 ## Technologies
@@ -13,8 +13,6 @@
   - thirdweb
 - Server Side Rendering
   - Next.js
-- CMS
-  - Sanity.io
 
 ## Features
 1. <strong>Connect to Multiple Wallets</strong> - Ability to connect to MetaMask, Coinbase Wallet, or WalletConnect.
